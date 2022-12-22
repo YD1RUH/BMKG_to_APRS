@@ -1,7 +1,7 @@
 #by YD1RUH
 
 #informasi server
-serverHost="103.154.80.106"
+serverHost=""
 serverPort="14580"
 callsign="GEMPA"
 password="14583"
