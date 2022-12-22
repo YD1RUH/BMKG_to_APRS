@@ -2,7 +2,7 @@ clear
 #by YD1RUH
 
 #informasi server
-serverHost="103.154.80.106"
+serverHost=""
 serverPort="14580"
 callsign="YD1RUH-6"
 password="20156"
