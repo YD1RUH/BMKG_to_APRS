@@ -1,3 +1,4 @@
+clear
 #by YD1RUH
 
 #informasi server
