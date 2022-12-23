@@ -2,7 +2,7 @@ clear
 #by YD1RUH
 
 #informasi server
-serverHost=""
+serverHost="103.154.80.106"
 serverPort="14580"
 callsign="YD1RUH-6"
 password="20156"
@@ -21,6 +21,7 @@ data=$(cat autogempa.xml); Magnitude=$(grep -oPm1 "(?<=<Magnitude>)[^<]+" <<< "$
 data=$(cat autogempa.xml); Kedalaman=$(grep -oPm1 "(?<=<Kedalaman>)[^<]+" <<< "$data")
 data=$(cat autogempa.xml); Potensi=$(grep -oPm1 "(?<=<Potensi>)[^<]+" <<< "$data")
 data=$(cat autogempa.xml); koordinat=$(grep -oPm1 "(?<=<coordinates>)[^<]+" <<< "$data")
+data=$(cat autogempa.xml); wilayah=$(grep -oPm1 "(?<=<Wilayah>)[^<]+" <<< "$data")
 koordinat2=$(<<< $koordinat sed 's/,/ /g')
 koordinat3=$(GeoConvert -d -p -1 --input-string "$koordinat2")
 koordinat4=$(<<< $koordinat3 sed 's/d//g');
@@ -31,7 +32,7 @@ y=$(awk '{print $2}' <<< "$koordinat6");
 
 #construction packet
 position="!$x/$y\Q"
-comment=" $tanggal $jam Magnitude:$Magnitude Kedalaman:$Kedalaman Potensi:$Potensi"
+comment=" $tanggal $jam Magnitude:$Magnitude Kedalaman:$Kedalaman Potensi:$Potensi Wilayah:$wilayah"
 packet="${address}${position}${comment}"
 
 #send data to IG server

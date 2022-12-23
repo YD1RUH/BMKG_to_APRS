@@ -1,8 +1,7 @@
-clear
 #by YD1RUH
 
 #informasi server
-serverHost=""
+serverHost="103.154.80.106"
 serverPort="14580"
 callsign="GEMPA"
 password="14583"
@@ -35,6 +34,7 @@ while true
 	        Magnitude=$(grep -oPm1 "(?<=<Magnitude>)[^<]+" <<< "$data")
 	        Kedalaman=$(grep -oPm1 "(?<=<Kedalaman>)[^<]+" <<< "$data")
 	        Potensi=$(grep -oPm1 "(?<=<Potensi>)[^<]+" <<< "$data")
+	        wilayah=$(grep -oPm1 "(?<=<Wilayah>)[^<]+" <<< "$data")
 	        koordinat=$(grep -oPm1 "(?<=<coordinates>)[^<]+" <<< "$data")
 	        koordinat2=$(<<< $koordinat sed 's/,/ /g')
 		koordinat3=$(GeoConvert -d -p -1 --input-string "$koordinat2")
@@ -46,7 +46,7 @@ while true
 
 		#construction packet
 		position="!$x/$y\Q"
-		comment=" $tanggal $jam Magnitude:$Magnitude Kedalaman:$Kedalaman Potensi:$Potensi"
+		comment=" $tanggal $jam Magnitude:$Magnitude Kedalaman:$Kedalaman Potensi:$Potensi Wilayah:$wilayah"
 	        callsign="GEMPA-"$COUNTER
 	        address="${callsign}>APRS,TCPIP:"
 		packet="${address}${position}${comment}"
