@@ -46,7 +46,7 @@ while true
 
 		#construction packet
 		position="!$x/$y\Q"
-		comment=" $tanggal $jam Magnitude:$Magnitude Kedalaman:$Kedalaman Potensi:$Potensi Wilayah:$wilayah"
+		comment=" $tanggal $jam Magnitude:$Magnitude Kedalaman:$Kedalaman Potensi:$Potensi Wilayah:$wilayah sumber:https://data.BMKG.go.id"
 	        callsign="GEMPA-"$COUNTER
 	        address="${callsign}>APRS,TCPIP:"
 		packet="${address}${position}${comment}"
