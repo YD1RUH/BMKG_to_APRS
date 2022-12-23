@@ -32,7 +32,7 @@ y=$(awk '{print $2}' <<< "$koordinat6");
 
 #construction packet
 position="!$x/$y\Q"
-comment=" $tanggal $jam Magnitude:$Magnitude Kedalaman:$Kedalaman Potensi:$Potensi Wilayah:$wilayah"
+comment=" $tanggal $jam Magnitude:$Magnitude Kedalaman:$Kedalaman Potensi:$Potensi Wilayah:$wilayah sumber:https://data.BMKG.go.id"
 packet="${address}${position}${comment}"
 
 #send data to IG server
